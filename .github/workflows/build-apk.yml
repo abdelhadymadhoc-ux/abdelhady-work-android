@@ -26,8 +26,10 @@ jobs:
       
 
       - name: Install Android SDK
-        run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
+    uses: android-actions/setup-android@v3
 
+  - name: Install Android platform
+    run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - name: Extract Android project
         run: |
           mkdir android-project
