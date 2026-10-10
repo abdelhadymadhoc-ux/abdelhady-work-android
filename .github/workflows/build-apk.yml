@@ -29,11 +29,10 @@ jobs:
     uses: android-actions/setup-android@v3
 
   - name: Install Android platform
-    run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
-      - name: Extract Android project
-        run: |
-          mkdir android-project
-          unzip -o abdelhady_work_android_project.zip -d android-project
+  uses: android-actions/setup-android@v3
+
+- name: Install Android SDK packages
+  run: sdkmanager "platforms;android-35" "build-tools;35.0.0" abdelhady_work_android_project.zip -d android-project
 
       - name: Build APK
         working-directory: android-project
